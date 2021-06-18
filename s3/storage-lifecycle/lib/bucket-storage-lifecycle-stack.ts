@@ -21,9 +21,9 @@ export class BucketStorageLifecycleStack extends cdk.Stack {
 
     bucket.addLifecycleRule({
       enabled: true,
-      tagFilters: [
-        '{"type": "png"}',
-      ],
+      tagFilters: {
+        type: 'png',
+      },
       transitions: [
         {
           storageClass: s3.StorageClass.INTELLIGENT_TIERING,
