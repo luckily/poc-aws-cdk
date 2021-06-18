@@ -32,5 +32,21 @@ export class BucketStorageLifecycleStack extends cdk.Stack {
       ],
       expiration: cdk.Duration.days(2),
     });
+
+    bucket.addLifecycleRule({
+      enabled: true,
+      tagFilters: {
+        invalid: '1',
+      },
+      expiration: cdk.Duration.days(1),
+    });
+
+    bucket.addLifecycleRule({
+      enabled: true,
+      tagFilters: {
+        invalid: '2',
+      },
+      expiration: cdk.Duration.days(2),
+    });
   }
 }
